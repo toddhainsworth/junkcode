@@ -1,0 +1,23 @@
+##
+# Calculates PERT based on the optimistic, likely and worst case estimates
+#
+# $ ./pert 15 20 28
+# 20.5
+
+#!/bin/env python
+import sys
+
+def main():
+    args = sys.argv
+
+    if len(args) < 4:
+        print("Must provide an optimistic, likely and worst case value")
+        exit(1)
+
+    optimistic = float(args[1])
+    likely = float(args[2])
+    worst = float(args[3])
+    pert = (optimistic + (4 * likely) + worst) / 6
+    print(pert)
+
+main()
