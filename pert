@@ -26,4 +26,4 @@ if __name__ == '__main__':
     likely = float(args[2])
     worst = float(args[3])
 
-    pert()
+    pert(optimistic, likely, worst)
