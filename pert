@@ -9,11 +9,8 @@
 
 import sys
 
-
 def pert(optimistic, likely, worst):
-    pert = (optimistic + (4 * likely) + worst) / 6.0
-    print(pert)
-
+    return (optimistic + (4 * likely) + worst) / 6.0
 
 if __name__ == '__main__':
     args = sys.argv
@@ -25,5 +22,14 @@ if __name__ == '__main__':
     optimistic = float(args[1])
     likely = float(args[2])
     worst = float(args[3])
+    table = False
+    if len(args) == 5:
+        table = args[4] == "t"
 
-    pert(optimistic, likely, worst)
+    result = pert(optimistic, likely, worst)
+    if table:
+        print("||Best||Likely||Worst||PERT")
+        print("|{}|{}|{}|{}|".format(optimistic, likely, worst, result))
+        sys.exit(0)
+
+    print(result)
